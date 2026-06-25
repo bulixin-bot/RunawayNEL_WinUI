@@ -1,0 +1,16 @@
+.idea
+接口文档.md
+.qoder
+bin
+文档
+obj
+Properties
+.vs
+*.user
+*.pdb
+.claude
+docs
+*Server
+publish
+output
+.mcp.*

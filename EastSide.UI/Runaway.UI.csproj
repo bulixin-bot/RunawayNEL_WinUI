@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <ApplicationIcon>..\641.ico</ApplicationIcon>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <PublishSingleFile>true</PublishSingleFile>
+        <SelfContained>true</SelfContained>
+        <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Photino.NET" Version="3.1.18" />
+        <PackageReference Include="Serilog" Version="4.3.0" />
+        <PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
+        <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Runaway\Runaway.csproj" />
+        <ProjectReference Include="..\Runaway.Core\Runaway.Core.csproj" />
+    </ItemGroup>
+
+    <!-- 将 wwwroot 嵌入为资源，运行时释放 -->
+    <ItemGroup>
+        <Content Remove="wwwroot\**" />
+        <None Remove="wwwroot\**" />
+        <EmbeddedResource Include="wwwroot\**">
+            <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <!-- 复制图标到输出目录 -->
+    <ItemGroup>
+        <None Include="..\641.ico" CopyToOutputDirectory="PreserveNewest" Link="641.ico" />
+    </ItemGroup>
+
+</Project>

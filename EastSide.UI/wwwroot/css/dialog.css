@@ -1,0 +1,192 @@
+
+.dialog-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: dialog-fade-in 0.2s ease-in-out;
+    backdrop-filter: blur(4px);
+}
+
+@keyframes dialog-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.dialog-overlay.closing {
+    animation: dialog-fade-out 0.15s ease-in-out forwards;
+}
+
+@keyframes dialog-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.dialog-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    width: 440px;
+    box-shadow: var(--shadow-toast);
+    animation: dialog-slide-in 0.2s ease-in-out;
+}
+
+@keyframes dialog-slide-in {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.dialog-overlay.closing .dialog-box {
+    animation: dialog-slide-out 0.15s ease-in-out forwards;
+}
+
+@keyframes dialog-slide-out {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(10px) scale(0.95); }
+}
+
+.dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px 0;
+}
+
+.dialog-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    background: var(--accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dialog-close {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    line-height: 1;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    flex-shrink: 0;
+    transition: all 0.15s ease-in-out;
+}
+
+.dialog-close:hover {
+    background: var(--hover-bg);
+    color: var(--text);
+    transform: rotate(90deg);
+}
+
+.dialog-body {
+    padding: 20px 24px;
+}
+
+.dialog-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    padding: 4px;
+}
+
+.dialog-tab {
+    flex: 1;
+    padding: 8px 0;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+
+.dialog-tab:hover {
+    color: var(--text);
+    background: rgba(102, 126, 234, 0.08);
+}
+
+.dialog-tab.active {
+    background: var(--surface);
+    color: var(--accent-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.dialog-body textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-family: inherit;
+    background: var(--surface);
+    color: var(--text);
+    outline: none;
+    resize: vertical;
+    transition: all 0.15s ease-in-out;
+}
+
+.dialog-body textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+}
+
+.dialog-body textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.dialog-body textarea:hover {
+    border-color: var(--text-secondary);
+}
+
+.dialog-error {
+    font-size: 13px;
+    color: var(--error);
+    min-height: 20px;
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+.dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 0 24px 20px;
+}
+
+.btn-random-name {
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--text-secondary);
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.15s ease-in-out;
+    font-weight: 500;
+}
+
+.btn-random-name:hover {
+    background: var(--hover-bg);
+    color: var(--text);
+    border-color: var(--accent-color);
+}
+
+.btn-random-name:active {
+    transform: scale(0.98);
+}
+

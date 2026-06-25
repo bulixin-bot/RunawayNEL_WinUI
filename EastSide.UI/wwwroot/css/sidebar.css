@@ -1,0 +1,172 @@
+
+.nav-item {
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    margin: 4px 8px;
+}
+
+.nav-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: var(--accent-color);
+    transform: scaleY(0);
+    transition: transform 0.2s ease-in-out, width 0.2s ease-in-out;
+    border-radius: 0 2px 2px 0;
+}
+
+.nav-item::after {
+    /* 禁用大圆形波纹效果，避免悬停时显示大圆 */
+    display: none;
+}
+
+.nav-item:hover {
+    transform: translateX(6px);
+    background: var(--hover-bg);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.nav-item:hover::before {
+    transform: scaleY(0.8);
+    width: 6px;
+}
+
+.nav-item:hover::after {
+    /* noop: 大圆样式已禁用 */
+}
+
+.nav-item.active:hover {
+    transform: translateX(6px);
+}
+
+.nav-item.active {
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.15) 0%, rgba(96, 165, 250, 0.08) 100%);
+    color: var(--accent-color);
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.nav-item.active::before {
+    transform: scaleY(1);
+    background: var(--accent-color);
+    width: 6px;
+}
+
+.nav-item.active::after {
+    /* noop: 大圆样式已禁用 */
+}
+
+.nav-item.active:hover {
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.2) 0%, rgba(96, 165, 250, 0.12) 100%);
+    color: var(--accent-color);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.25);
+}
+
+.nav-icon svg {
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.nav-item:hover .nav-icon svg,
+.nav-item.active .nav-icon svg {
+    transform: scale(1.15);
+    color: var(--accent-color);
+}
+
+.sidebar {
+    position: relative;
+    backdrop-filter: blur(12px);
+    border-right: 1px solid var(--border);
+    background: var(--surface);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+}
+
+/* icon-only compact sidebar */
+.sidebar.icon-only {
+    width: 72px;
+    overflow: visible; /* allow tooltip to overflow */
+}
+.sidebar.icon-only .nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 6px;
+    margin: 6px 6px;
+    width: 56px;
+}
+.sidebar.icon-only .nav-item .nav-label {
+    display: none;
+}
+.sidebar.icon-only .nav-item {
+    overflow: visible; /* ensure pseudo tooltip can be visible */
+}
+.sidebar.icon-only .nav-item .nav-icon {
+    display: block;
+}
+.sidebar.icon-only .nav-divider { display: none; }
+
+/* title tooltip on hover for icon-only */
+.sidebar.icon-only .nav-item[title]::after {
+    /* 禁用 CSS 伪元素提示，改用 JS 动态创建的小提示，避免出现两个提示框 */
+    display: none !important;
+}
+/* 伪元素提示已禁用 */
+
+[data-theme="dark"] .sidebar {
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+}
+
+.nav-indicator {
+    position: absolute;
+    left: 0;
+    width: 4px;
+    border-radius: 0 2px 2px 0;
+    background: var(--accent-color);
+    transition: top 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                height 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                width 0.2s ease-in-out;
+    pointer-events: none;
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.nav-indicator.active {
+    width: 6px;
+}
+
+.sidebar.sidebar-enter {
+    animation: sidebarSlideIn 0.2s ease-in-out forwards;
+}
+
+@keyframes sidebarSlideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.nav-item.nav-item-enter,
+.nav-divider.nav-item-enter {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: navItemFadeIn 0.2s ease-in-out forwards;
+}
+
+@keyframes navItemFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.content-enter {
+    animation: contentFadeIn 0.3s ease-in-out forwards;
+    animation-delay: 0.1s;
+    opacity: 0;
+}
+
+@keyframes contentFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+

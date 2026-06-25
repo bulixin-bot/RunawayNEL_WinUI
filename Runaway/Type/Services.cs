@@ -1,0 +1,13 @@
+using Codexus.OpenSDK.Yggdrasil;
+using Codexus.OpenSDK.Entities.Yggdrasil;
+using Serilog;
+
+namespace Runaway.Type;
+
+internal class Services(
+    StandardYggdrasil Yggdrasil
+    )
+{ 
+    public StandardYggdrasil Yggdrasil { get; private set; } = Yggdrasil;
+}
+

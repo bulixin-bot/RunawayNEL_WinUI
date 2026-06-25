@@ -1,0 +1,338 @@
+
+.overview-grid {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.card-announcement {
+    flex: 1;
+    min-width: 0;
+}
+
+.announcement-loading {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.announcement-item {
+    padding: 0;
+}
+
+.announcement-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.announcement-date {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 12px;
+    display: block;
+}
+
+.announcement-text {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+
+.card-userinfo {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+}
+
+.userinfo-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--bg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 3px solid rgba(102, 126, 234, 0.2);
+}
+
+.userinfo-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.userinfo-detail {
+    min-width: 0;
+}
+
+.userinfo-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.userinfo-id {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.userinfo-rank {
+    margin-left: auto;
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-color);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.1) 100%);
+    padding: 6px 16px;
+    border-radius: 20px;
+    white-space: nowrap;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.recent-play-section {
+    margin-top: 24px;
+}
+
+.recent-play-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 16px 0;
+}
+
+.recent-play-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.recent-play-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: var(--card-bg, var(--bg));
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: all 0.15s ease-in-out;
+}
+
+.recent-play-item:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.recent-play-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.recent-play-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.recent-play-type {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.recent-play-type.type-network {
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.12);
+}
+
+.recent-play-type.type-rental {
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.12);
+}
+
+.recent-play-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+.recent-play-time {
+    font-size: 13px;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.recent-play-join {
+    font-size: 13px;
+    padding: 6px 18px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+    white-space: nowrap;
+    font-weight: 600;
+    transition: all 0.15s ease-in-out;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.recent-play-join:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.recent-play-join:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(102, 126, 234, 0.3);
+}
+
+.spokesperson-section {
+    margin-bottom: 24px;
+    padding: 20px;
+    background: var(--card-bg, var(--bg));
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.spokesperson-section:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
+}
+
+.spokesperson-section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 16px 0;
+    text-align: center;
+}
+
+.spokesperson-images {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+.spokesperson-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 3px solid rgba(102, 126, 234, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+}
+
+.spokesperson-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .spokesperson-images {
+        flex-direction: column;
+    }
+    
+    .spokesperson-image {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+.game-duration-section {
+    margin-bottom: 24px;
+    padding: 20px;
+    background: var(--card-bg, var(--bg));
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    text-align: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.game-duration-section:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
+}
+
+.game-duration-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 16px 0;
+}
+
+.game-duration-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin: 0;
+}
+
+.runaway-intro-section {
+    margin-bottom: 24px;
+    padding: 20px;
+    background: var(--card-bg, var(--bg));
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.runaway-intro-section:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
+}
+
+.runaway-intro-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 16px 0;
+}
+
+.runaway-intro-text {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+}
+
+.runaway-intro-features {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0 0 0 20px;
+    padding: 0;
+}
+
+.runaway-intro-features li {
+    margin-bottom: 8px;
+}
+
+.runaway-intro-features li:last-child {
+    margin-bottom: 0;
+}
+

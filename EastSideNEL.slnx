@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Runaway/Runaway.csproj" />
+  <Project Path="Runaway.Core/Runaway.Core.csproj" />
+  <Project Path="EastSide.UI/Runaway.UI.csproj" />
+  <Project Path="Runaway.IRC/Runaway.IRC.csproj" />
+</Solution>
